@@ -1,17 +1,12 @@
 import React from "react";
+import { Hotel } from "../../types/model";
 import "./Card.scss";
 
-function Card() {
-  const hotel = {
-    name: "Titanic Beach Hotel Lara",
-    location: "Lara-Kundu, Antalya Merkez, Antalya",
-    img: "https://images.etstur.com/files/images/hotelImages/TR/51942/m/Titanic-Beach-Hotel-Lara-Genel-301888.jpg",
-    point: 0,
-    created_at: 1655410205321,
-    updated_at: 1655410221118,
-    price: 4000,
-  };
+interface Props {
+  hotel: Hotel;
+}
 
+function Card({ hotel }: Props) {
   return (
     <div className="card">
       <img src={hotel.img} alt="hotel" />
