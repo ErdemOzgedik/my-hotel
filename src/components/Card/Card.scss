@@ -9,6 +9,7 @@
     flex-direction: column;
     opacity: $opacity;
     margin-top: 1.5rem;
+    transition: all 0.5s ease-out;
 
     &:hover {
         opacity: 1;
@@ -55,12 +56,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    flex-shrink: 0;
     width: 100%;
     height: 200px;
 
     @include desktop {
         height: 300px;
-        width: 600px;
+        width: 60%;
         border-radius: 0;
         border-bottom-left-radius: 1rem;
         border-top-left-radius: 1rem;
@@ -135,6 +137,7 @@
     background-color: rgba(0, 0, 0, 0.589);
     opacity: $opacity;
     color: white;
+    transition: all 0.5s ease-out;
 
     &:hover {
         opacity: 1;

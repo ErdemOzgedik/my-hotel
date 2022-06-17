@@ -7,10 +7,10 @@
     height: 100vh;
     width: 90%;
     margin: auto;
+    margin-top: 1rem;
 
     @include desktop {
         width: 70%;
-        margin: auto;
     }
 }
 
