@@ -7,7 +7,8 @@ import Dropdown from "./components/Dropdown/Dropdown";
 function App() {
   return (
     <div className="app">
-      {/* filterComponents */}
+      {/* Router ekle */}
+
       <Dropdown />
 
       <div className="card__list">

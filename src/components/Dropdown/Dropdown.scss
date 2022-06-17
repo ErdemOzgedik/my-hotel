@@ -34,12 +34,16 @@
 
 .dropdown__body {
     position: absolute;
-    width: 100%;
+    width: 90%;
     z-index: 999;
     padding: 0.5rem;
     border-top: 1px solid #e5e8ec;
     display: none;
     background-color: white;
+
+    @include desktop {
+        width: 70%;
+    }
 }
 
 .dropdown__body.open {

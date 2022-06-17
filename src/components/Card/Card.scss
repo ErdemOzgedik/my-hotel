@@ -29,10 +29,10 @@
     }
 
     @include desktop {
-        width: 32%;
-        margin-left: 0.5rem;
+        flex-direction: row;
+        margin: 1.5rem auto 0;
 
-        &:nth-of-type(-n + 3) {
+        &:first-of-type {
             margin-top: 1rem;
         }
     }
@@ -42,6 +42,10 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
+
+    @include desktop {
+        width: 100%;
+    }
 }
 
 .card > img {
@@ -53,11 +57,23 @@
     background-position: center;
     width: 100%;
     height: 200px;
+
+    @include desktop {
+        height: 300px;
+        width: 600px;
+        border-radius: 0;
+        border-bottom-left-radius: 1rem;
+        border-top-left-radius: 1rem;
+    }
 }
 
 .card__content {
     display: flex;
     flex-direction: column;
+
+    @include desktop {
+        height: 70%;
+    }
 }
 
 .card__content__name {
@@ -82,10 +98,21 @@
     display: flex;
     margin-top: 0.5rem;
     align-items: center;
+
+    @include desktop {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        justify-self: flex-end;
+    }
 }
 
 .card__price {
     width: 40%;
+
+    @include desktop {
+        width: 100%;
+    }
 }
 
 .card__point {
@@ -93,6 +120,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include desktop {
+        margin-top: 0.8rem;
+        width: 100%;
+    }
 }
 
 .card__point > button {
