@@ -4,6 +4,8 @@
 .dropdown {
     @include rounded-corner(1rem);
     @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
     background-color: transparent;
     position: relative;
@@ -13,7 +15,6 @@
     padding: 1rem;
     cursor: pointer;
     display: flex;
-    margin: auto;
     justify-content: space-between;
     align-items: center;
 
