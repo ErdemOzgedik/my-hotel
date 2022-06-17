@@ -1,0 +1,31 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+
+    @include desktop {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+.card__list {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include tablet {
+        justify-content: space-between;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+    }
+}
