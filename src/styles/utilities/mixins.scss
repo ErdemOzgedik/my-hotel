@@ -1,0 +1,84 @@
+@import "../utilities/variables.scss";
+
+@mixin flex-container($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin rounded-corner($arc) {
+  -moz-border-radius: $arc;
+  -webkit-border-radius: $arc;
+  border-radius: $arc;
+}
+
+@mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
+  font-family: $font-primary;
+  font-size: $font-size * 1rem;
+
+  @if $line-height==normal {
+    line-height: normal;
+  } @else {
+    line-height: $line-height / $font-size;
+  }
+
+  @if $letter-spacing==normal {
+    letter-spacing: normal;
+  } @else {
+    letter-spacing: #{$letter-spacing / $font-size}em;
+  }
+}
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin app-container($color) {
+  @include flex-container(column, center, center);
+  height: 100vh;
+  text-align: center;
+  color: $color;
+}
+
+@mixin link($color) {
+  color: $color;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+@mixin line-clamp($count) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $count;
+  line-clamp: $count;
+  -webkit-box-orient: vertical;
+}
+
+@mixin phone {
+  @media (max-width: $phone-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

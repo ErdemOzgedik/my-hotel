@@ -1,0 +1,102 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.card {
+    @include rounded-corner(1rem);
+    @include box-shadow(5px 5px 10px 2px $color-tertiary);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: $opacity;
+    margin-top: 1.5rem;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @include phone {
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    @include tablet {
+        width: 48%;
+    }
+
+    @include desktop {
+        width: 32%;
+        margin-left: 0.5rem;
+    }
+}
+
+.card__container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.card > img {
+    @include rounded-corner(1rem);
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card__content__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+}
+
+.card__content__location {
+    font-size: 1rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+}
+
+.card__footer {
+    display: flex;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.card__price {
+    width: 40%;
+}
+
+.card__point {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__point > button {
+    width: 40%;
+    padding: 0.5rem;
+    border: 0.5rem;
+    border-radius: 2rem;
+    background-color: rgba(0, 0, 0, 0.589);
+    opacity: $opacity;
+    color: white;
+
+    &:hover {
+        opacity: 1;
+    }
+}
