@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.scss";
+
 import Card from "./components/Card/Card";
+import Dropdown from "./components/Dropdown/Dropdown";
 
 function App() {
   return (
     <div className="app">
       {/* filterComponents */}
-      <div>FilterRRR</div>
+      <Dropdown />
 
       <div className="card__list">
         <Card />

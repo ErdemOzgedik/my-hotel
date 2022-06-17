@@ -1,0 +1,61 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.dropdown {
+    @include rounded-corner(0.3rem);
+    @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+    width: 100%;
+    background-color: white;
+}
+
+.dropdown__header {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+        justify-content: flex-end;
+
+        > span {
+            margin-right: 0.5rem;
+        }
+    }
+
+    @include desktop {
+        justify-content: flex-end;
+
+        > span {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.dropdown__body {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    padding: 0.5rem;
+    border-top: 1px solid #e5e8ec;
+    display: none;
+    background-color: white;
+}
+
+.dropdown__body.open {
+    display: block;
+}
+
+.dropdown__item {
+    padding: 0.8rem;
+    opacity: $opacity;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.selected {
+    opacity: 1;
+    background-color: sandybrown;
+}
