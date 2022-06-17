@@ -2,16 +2,18 @@
 @import "../../styles/utilities/variables.scss";
 
 .dropdown {
-    @include rounded-corner(0.3rem);
+    @include rounded-corner(1rem);
     @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
     width: 100%;
-    background-color: white;
+    background-color: transparent;
+    position: relative;
 }
 
 .dropdown__header {
     padding: 1rem;
     cursor: pointer;
     display: flex;
+    margin: auto;
     justify-content: space-between;
     align-items: center;
 
@@ -34,16 +36,12 @@
 
 .dropdown__body {
     position: absolute;
-    width: 90%;
+    width: 100%;
     z-index: 999;
     padding: 0.5rem;
     border-top: 1px solid #e5e8ec;
     display: none;
     background-color: white;
-
-    @include desktop {
-        width: 70%;
-    }
 }
 
 .dropdown__body.open {

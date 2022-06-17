@@ -14,6 +14,19 @@
     }
 }
 
+.home__header {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+    }
+
+    @include desktop {
+        flex-direction: row;
+    }
+}
+
 .card__list {
     width: 100%;
     flex: 1;

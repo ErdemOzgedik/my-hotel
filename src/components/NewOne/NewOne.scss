@@ -1,0 +1,51 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.new__one {
+    opacity: $opacity;
+    color: $color-tertiary;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    > .icon {
+        @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+        @include rounded-corner(0.4rem);
+        border: 1px solid $color-tertiary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        height: 40px;
+        width: 40px;
+    }
+
+    > span {
+        margin-left: 1rem;
+    }
+
+    @include tablet {
+        margin-bottom: 0;
+
+        > .icon {
+            height: 50px;
+            width: 50px;
+        }
+    }
+
+    @include desktop {
+        margin-bottom: 0;
+
+        > .icon {
+            height: 60px;
+            width: 60px;
+        }
+    }
+}
