@@ -10,6 +10,7 @@ import { getHotelsAsync } from "../../redux/hotelSlice";
 import { RootState } from "../../redux/store";
 import { Hotel } from "../../types/model";
 import { useNavigate } from "react-router-dom";
+import NoFound from "../../components/NoFound/NoFound";
 
 function Home() {
   const [isModalOpen, setModalIsOpen] = useState<boolean>(false);
@@ -53,14 +54,14 @@ function Home() {
           icon={<VscAdd />}
           handleNavigate={handleNavigate}
         />
-        <Dropdown />
+        {state.hotels.length > 0 && <Dropdown />}
       </div>
       <div className="card__list">
+        {state.hotels.length === 0 && <NoFound />}
         {state.hotels.map((hotel) => (
           <Card key={hotel.id} hotel={hotel} handleDelete={handleDelete} />
         ))}
       </div>
-      <div>Pagination</div>
     </div>
   );
 }
