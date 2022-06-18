@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Add from "./pages/Add/Add";
+import Create from "./pages/Create/Create";
 import Home from "./pages/Home/Home";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="add" element={<Add />} />
+          <Route path="create" element={<Create />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
