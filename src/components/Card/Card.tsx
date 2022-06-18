@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux";
 import { decreasePoint, increasePoint } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
 import "./Card.scss";
+import { GrClose } from "react-icons/gr";
 
 interface Props {
   hotel: Hotel;
+  handleDelete: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-function Card({ hotel }: Props) {
+function Card({ hotel, handleDelete }: Props) {
   const dispatch = useDispatch();
 
   const handleIncrease = () => {
@@ -39,6 +41,14 @@ function Card({ hotel }: Props) {
             <button onClick={handleDecrease}>-</button>
           </div>
         </div>
+      </div>
+      <div
+        onClick={handleDelete}
+        className="card__delete"
+        data-id={hotel.id}
+        data-name={hotel.name}
+      >
+        <GrClose />
       </div>
     </div>
   );

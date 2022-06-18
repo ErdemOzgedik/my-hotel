@@ -1,0 +1,66 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.modal {
+    background-color: hsla(244, 51%, 62%, 0.5);
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__container {
+    background: #fff;
+    border-radius: 5px;
+    width: 90%;
+    padding: 2rem;
+    transition: transform 0.5s ease-out;
+
+    &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    @include tablet {
+        width: 45%;
+    }
+    @include desktop {
+        width: 30%;
+    }
+}
+
+.modal__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.modal__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    > button {
+        width: 40%;
+        background: #8c54ff;
+        border: 0;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 15px;
+        transition: transform 0.5s ease-out;
+
+        &:hover {
+            background: #682ede;
+            transform: scale(1.1);
+        }
+    }
+}

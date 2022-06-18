@@ -89,6 +89,11 @@ export const hotelSlice = createSlice({
         return b.updated_at - a.updated_at;
       });
     },
+    deleteHotel: (state, action) => {
+      state.hotels = state.hotels.filter(
+        (hotel) => hotel.id !== action.payload
+      );
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getHotelsAsync.fulfilled, (state, { payload }) => {
@@ -106,6 +111,11 @@ export const hotelSlice = createSlice({
   },
 });
 
-export const { addHotel, increasePoint, decreasePoint, filterHotels } =
-  hotelSlice.actions;
+export const {
+  addHotel,
+  increasePoint,
+  decreasePoint,
+  filterHotels,
+  deleteHotel,
+} = hotelSlice.actions;
 export default hotelSlice.reducer;
