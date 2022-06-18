@@ -17,7 +17,7 @@ function Create() {
     name: "",
     location: "",
     price: 0,
-    img: "",
+    img: "https://images.etstur.com/files/images/hotelImages/TR/51164/m/Club-Yali-Hotels---Resort-Genel-133324.jpg",
   });
 
   const handleNavigate = () => {
@@ -27,7 +27,7 @@ function Create() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.currentTarget;
 
-    setState((prevState) => ({ ...prevState, [id]: value.trim() }));
+    setState((prevState) => ({ ...prevState, [id]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,7 +35,10 @@ function Create() {
     e.preventDefault();
     dispatch(
       addHotel({
-        ...state,
+        price: state.price,
+        img: state.img,
+        location: state.location,
+        name: state.name.trim(),
         id: currentTime,
         point: 0,
         created_at: currentTime,
