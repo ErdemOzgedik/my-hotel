@@ -22,6 +22,30 @@ export const hotelSlice = createSlice({
     addHotel: (state, action) => {
       state.hotels = [...state.hotels, action.payload];
     },
+    increasePoint: (state, action) => {
+      state.hotels = state.hotels.map((hotel) => {
+        if (hotel.id === action.payload) {
+          return {
+            ...hotel,
+            point: hotel.point + 1,
+            updated_at: new Date().getTime(),
+          };
+        }
+        return hotel;
+      });
+    },
+    decreasePoint: (state, action) => {
+      state.hotels = state.hotels.map((hotel) => {
+        if (hotel.id === action.payload) {
+          return {
+            ...hotel,
+            point: hotel.point - 1,
+            updated_at: new Date().getTime(),
+          };
+        }
+        return hotel;
+      });
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getHotelsAsync.fulfilled, (state, { payload }) => {
@@ -39,5 +63,5 @@ export const hotelSlice = createSlice({
   },
 });
 
-export const { addHotel } = hotelSlice.actions;
+export const { addHotel, increasePoint, decreasePoint } = hotelSlice.actions;
 export default hotelSlice.reducer;

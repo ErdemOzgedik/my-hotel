@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { decreasePoint, increasePoint } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
 import "./Card.scss";
 
@@ -7,6 +9,18 @@ interface Props {
 }
 
 function Card({ hotel }: Props) {
+  const dispatch = useDispatch();
+
+  const handleIncrease = () => {
+    dispatch(increasePoint(hotel.id));
+  };
+
+  const handleDecrease = () => {
+    if (hotel.point > 0) {
+      dispatch(decreasePoint(hotel.id));
+    }
+  };
+
   return (
     <div className="card">
       <img src={hotel.img} alt="hotel" />
@@ -20,9 +34,9 @@ function Card({ hotel }: Props) {
             <span>{hotel.price} TL</span>
           </div>
           <div className="card__point">
-            <button>+</button>
+            <button onClick={handleIncrease}>+</button>
             <span>{hotel.point}</span>
-            <button>-</button>
+            <button onClick={handleDecrease}>-</button>
           </div>
         </div>
       </div>
