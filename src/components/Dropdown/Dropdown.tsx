@@ -1,30 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GoArrowDown, GoArrowRight } from "react-icons/go";
+import { useDispatch } from "react-redux";
+import { filterHotels } from "../../redux/hotelSlice";
+import { FILTER_TYPES } from "../../types/enums";
 
 import "./Dropdown.scss";
 
 const data = [
-  { id: "0", label: "Fiyata Göre Artan" },
-  { id: "1", label: "Fiyata Göre Azalan" },
-  { id: "2", label: "Puana Göre Artan" },
-  { id: "3", label: "Puana Göre Azalan" },
+  { id: FILTER_TYPES.HIGHEST_PRICE, label: "En Yuksek Fiyat" },
+  { id: FILTER_TYPES.LOWEST_PRICE, label: "En Dusuk Fiyat" },
+  { id: FILTER_TYPES.HIGHEST_POINT, label: "En Yuksek Puan" },
+  { id: FILTER_TYPES.LOWEST_POINT, label: "En Dusuk Puan" },
 ];
 
 function Dropdown() {
+  const dispatch = useDispatch();
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<number>(0);
 
   const toggleDropdown = () => setOpen(!isOpen);
 
   const handleItemClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let targetId = parseInt(e.currentTarget.id);
     setTimeout(() => {
       toggleDropdown();
     }, 200);
 
-    selectedItem === e.currentTarget.id
-      ? setSelectedItem("")
-      : setSelectedItem(e.currentTarget.id);
+    selectedItem === targetId ? setSelectedItem(0) : setSelectedItem(targetId);
   };
+
+  useEffect(() => {
+    dispatch(filterHotels(selectedItem));
+  }, [dispatch, selectedItem]);
 
   return (
     <div className="dropdown">
@@ -32,7 +39,7 @@ function Dropdown() {
         <span>
           {selectedItem
             ? data.find((item) => item.id === selectedItem)?.label
-            : "Select your destination"}
+            : "Önerilen Sıralama"}
         </span>
         {isOpen ? <GoArrowDown /> : <GoArrowRight />}
       </div>
@@ -44,7 +51,7 @@ function Dropdown() {
               item.id === selectedItem && "selected"
             }`}
             onClick={handleItemClick}
-            id={item.id}
+            id={item.id.toString()}
           >
             {item.label}
           </div>
