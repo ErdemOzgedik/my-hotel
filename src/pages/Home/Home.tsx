@@ -11,13 +11,17 @@ import { RootState } from "../../redux/store";
 import { Hotel } from "../../types/model";
 import { useNavigate } from "react-router-dom";
 import NoFound from "../../components/NoFound/NoFound";
+import { SHOW_COUNT } from "../../types/constants";
+import Pagination from "../../components/Pagination/Pagination";
 
 function Home() {
   const [isModalOpen, setModalIsOpen] = useState<boolean>(false);
   const [selectedHotel, setSelectedHotel] = useState<Hotel>();
+  const [currentPage, setCurrentPage] = useState<number>(0);
   const state = useSelector((state: RootState) => state.hotels);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const pageCount = Math.ceil(state.hotels.length / SHOW_COUNT);
 
   const handleNavigate = () => {
     navigate("/create");
@@ -35,9 +39,17 @@ function Home() {
     }
   };
 
+  const handleChange = (index: number): void => {
+    setCurrentPage(index);
+  };
+
   const toggleModal = () => {
     setModalIsOpen(!isModalOpen);
   };
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [state.hotels]);
 
   useEffect(() => {
     state.hotels.length === 0 && dispatch(getHotelsAsync());
@@ -58,10 +70,20 @@ function Home() {
       </div>
       <div className="card__list">
         {state.hotels.length === 0 && <NoFound />}
-        {state.hotels.map((hotel) => (
-          <Card key={hotel.id} hotel={hotel} handleDelete={handleDelete} />
-        ))}
+        {state.hotels
+          .slice(currentPage * SHOW_COUNT, (currentPage + 1) * SHOW_COUNT)
+          .map((hotel) => (
+            <Card key={hotel.id} hotel={hotel} handleDelete={handleDelete} />
+          ))}
       </div>
+
+      {pageCount > 1 ? (
+        <Pagination
+          pageCount={pageCount}
+          currentPage={currentPage}
+          handleChange={handleChange}
+        />
+      ) : null}
     </div>
   );
 }

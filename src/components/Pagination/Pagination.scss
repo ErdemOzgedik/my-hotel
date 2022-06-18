@@ -1,0 +1,39 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.pagination {
+    @include flex-container(column, center, center);
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.pagination__list {
+    display: flex;
+}
+
+.pagination__list__item {
+    @include flex-container(row, center, center);
+    @include box-shadow(5px 5px 10px 2px $color-tertiary);
+    @include rounded-corner(50%);
+    background-color: $color-primary;
+    color: $color-secondary;
+    opacity: $opacity;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 1s ease;
+    margin-right: 1rem;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+
+    &.active {
+        background-color: $color-secondary;
+        color: $color-primary;
+        opacity: 1;
+    }
+}

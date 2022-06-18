@@ -4,16 +4,17 @@
         "location": "Kiriş, Kemer, Antalya",
         "price": 4000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/51539/m/Maxx-Royal-Kemer-Resort-Genel-300651.jpg",
-        "point": 0,
+        "point": 7.5,
         "created_at": 1655410205321,
         "updated_at": 1655410221115
-    }, {
+    },
+    {
         "id": 2,
         "name": "Titanic Beach Hotel Lara",
         "location": "Lara-Kundu, Antalya Merkez, Antalya",
         "price": 3000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/51942/m/Titanic-Beach-Hotel-Lara-Genel-301888.jpg",
-        "point": 0,
+        "point": 8.4,
         "created_at": 1655410205321,
         "updated_at": 1655410221117
     }, {
@@ -22,7 +23,7 @@
         "location": "Kuşadası, Aydın",
         "price": 5000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/55109/m/Pine-Bay-Holiday-Resort-Hotel-Genel-309171.jpg",
-        "point": 0,
+        "point": 9.9,
         "created_at": 1655410205321,
         "updated_at": 1655410221116
     },
@@ -44,5 +45,61 @@
         "point": 0,
         "created_at": 1655410205321,
         "updated_at": 1655410221119
+    }, {
+        "id": 6,
+        "name": "Maxx Royal Kemer Resort",
+        "location": "Kiriş, Kemer, Antalya",
+        "price": 4000,
+        "img": "https://images.etstur.com/files/images/hotelImages/TR/51539/m/Maxx-Royal-Kemer-Resort-Genel-300651.jpg",
+        "point": 7.5,
+        "created_at": 1655410205321,
+        "updated_at": 1655410221115
+    }, {
+        "id": 7,
+        "name": "Titanic Beach Hotel Lara",
+        "location": "Lara-Kundu, Antalya Merkez, Antalya",
+        "price": 3000,
+        "img": "https://images.etstur.com/files/images/hotelImages/TR/51942/m/Titanic-Beach-Hotel-Lara-Genel-301888.jpg",
+        "point": 8.4,
+        "created_at": 1655410205321,
+        "updated_at": 1655410221117
+    }, {
+        "id": 8,
+        "name": "Pine Bay Holiday Resort Hotel",
+        "location": "Kuşadası, Aydın",
+        "price": 5000,
+        "img": "https://images.etstur.com/files/images/hotelImages/TR/55109/m/Pine-Bay-Holiday-Resort-Hotel-Genel-309171.jpg",
+        "point": 9.9,
+        "created_at": 1655410205321,
+        "updated_at": 1655410221116
+    },
+    {
+        "id": 9,
+        "name": "Maxx Royal Belek Golf Resort",
+        "location": "Belek, Antalya",
+        "price": 3900,
+        "img": "https://images.etstur.com/files/images/hotelImages/TR/50340/m/Maxx-Royal-Belek-Golf-Resort-Genel-324525.jpg",
+        "point": 0,
+        "created_at": 1655410205321,
+        "updated_at": 1655410221118
+    }, {
+        "id": 10,
+        "name": "Yargi Resort",
+        "location": "Sorgun, Side, Antalya",
+        "price": 4000,
+        "img": "https://images.etstur.com/files/images/hotelImages/TR/51886/m/Ali-Bey-Resort-Genel-342720.jpg",
+        "point": 0,
+        "created_at": 1655410205321,
+        "updated_at": 1655410221122
+    },
+    {
+        "id": 11,
+        "name": "Nihal Resort",
+        "location": "Sorgun, Side, Antalya",
+        "price": 8500,
+        "img": "https://images.etstur.com/files/images/hotelImages/TR/51886/m/Ali-Bey-Resort-Genel-342720.jpg",
+        "point": 0,
+        "created_at": 1655410205321,
+        "updated_at": 1655410221120
     }
 ]
