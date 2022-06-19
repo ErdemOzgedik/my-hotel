@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import NoFound from "../../components/NoFound/NoFound";
 import { SHOW_COUNT } from "../../types/constants";
 import Pagination from "../../components/Pagination/Pagination";
+import { Toaster } from "react-hot-toast";
 
 function Home() {
   const [isModalOpen, setModalIsOpen] = useState<boolean>(false);
@@ -84,6 +85,25 @@ function Home() {
           handleChange={handleChange}
         />
       ) : null}
+
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "white",
+              secondary: "black",
+            },
+            style: {
+              background: "orange",
+              color: "white",
+              padding: "1rem",
+              opacity: "0.2",
+            },
+          },
+        }}
+      />
     </div>
   );
 }

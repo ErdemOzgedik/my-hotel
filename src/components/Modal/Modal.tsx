@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { deleteHotel } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
@@ -15,6 +16,8 @@ function Modal({ hotel, toggleModal }: Props) {
   const handleDelete = () => {
     toggleModal();
     dispatch(deleteHotel(hotel.id));
+
+    toast.success("Hotel successfully deleted!");
   };
 
   return (

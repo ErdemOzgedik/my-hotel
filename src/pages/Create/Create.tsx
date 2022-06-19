@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Create.scss";
 import { FaHotel, FaMoneyBill, FaImage, FaStepBackward } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
@@ -7,10 +7,10 @@ import Navigator from "../../components/Navigator/Navigator";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addHotel } from "../../redux/hotelSlice";
-
-//https://images.etstur.com/files/images/hotelImages/TR/51164/m/Club-Yali-Hotels---Resort-Genel-133324.jpg
+import toast, { Toaster } from "react-hot-toast";
 
 function Create() {
+  const toasterRef = useRef("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [state, setState] = useState({
@@ -45,7 +45,18 @@ function Create() {
         updated_at: currentTime,
       })
     );
+
+    toasterRef.current = toast.success("Hotel successfully added!");
   };
+
+  useEffect(() => {
+    return () => {
+      console.log("====================================");
+      console.log(toasterRef.current);
+      console.log("====================================");
+      toast.dismiss(toasterRef.current);
+    };
+  }, []);
 
   return (
     <form className="create" onSubmit={handleSubmit}>
@@ -119,6 +130,24 @@ function Create() {
           <VscAdd />
         </button>
       </div>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "white",
+              secondary: "black",
+            },
+            style: {
+              background: "green",
+              color: "white",
+              padding: "1rem",
+              opacity: "0.2",
+            },
+          },
+        }}
+      />
     </form>
   );
 }
