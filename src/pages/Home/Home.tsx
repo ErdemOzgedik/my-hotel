@@ -56,11 +56,13 @@ function Home() {
         <Modal hotel={selectedHotel} toggleModal={toggleModal} />
       )}
       <div className="home__header">
-        <Navigator
-          title="Add Hotel"
-          icon={<VscAdd />}
-          handleNavigate={handleNavigate}
-        />
+        <div style={{ width: "100%" }}>
+          <Navigator
+            title="Add Hotel"
+            icon={<VscAdd />}
+            handleNavigate={handleNavigate}
+          />
+        </div>
         {state.hotels.length > 0 && <Dropdown />}
       </div>
       <div className="card__list">

@@ -2,9 +2,9 @@
   "short_name": "My Hotel",
   "name": "Hotel App",
   "icons": [{
-    "src": "favicon.jpeg",
+    "src": "icon.jpeg",
     "sizes": "64x64 32x32 24x24 16x16",
-    "type": "image/x-icon"
+    "type": "image/png"
   }],
   "start_url": ".",
   "display": "standalone",
