@@ -1,20 +1,23 @@
+@font-face {
+    font-family: "Rubik", sans-serif;
+    src: url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap");
+}
+
+@font-face {
+    font-family: "Raleway", sans-serif;
+    src: url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;500&display=swap");
+}
+
 $white: #fff;
 $black: rgb(85, 83, 83);
 $blue: #2e25a7;
 
-$link-primary: $white;
-$link-secondary: $blue;
-$link-tertiary: $black;
+$font-primary: "Rubik", sans-serif;
+$font-secondary: "Raleway", sans-serif;
 
-$radius-button: 5px;
-$radius-tab: 5px;
-
-$font-primary: "Roboto", sans-serif;
-$font-secondary: Arial, Helvetica, sans-serif;
-
-$color-primary: $white;
+$color-primary: $black;
 $color-secondary: $blue;
-$color-tertiary: $black;
+$color-tertiary: $white;
 
 $opacity: 0.8;
 

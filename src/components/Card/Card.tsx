@@ -4,6 +4,8 @@ import { decreasePoint, increasePoint } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
 import "./Card.scss";
 import { GrClose } from "react-icons/gr";
+import { FaMoneyBill } from "react-icons/fa";
+import { GoLocation } from "react-icons/go";
 import Button from "../Button/Button";
 
 interface Props {
@@ -29,13 +31,19 @@ function Card({ hotel, handleDelete }: Props) {
       <img src={hotel.img} alt="hotel" />
       <div className="card__container">
         <div className="card__content">
-          <span className="card__content__name">{hotel.name}</span>
-          <span className="card__content__location">{hotel.location}</span>
-        </div>
-        <div className="card__footer">
+          <div className="card__content__name">
+            <span>{hotel.name}</span>
+          </div>
+          <div className="card__content__location">
+            <GoLocation />
+            <span>{hotel.location}</span>
+          </div>
           <div className="card__price">
+            <FaMoneyBill />
             <span>{hotel.price} TL</span>
           </div>
+        </div>
+        <div className="card__footer">
           <div className="card__point">
             <Button
               handleClick={handleIncrease}

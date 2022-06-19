@@ -13,20 +13,20 @@
   border-radius: $arc;
 }
 
-@mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
-  font-family: $font-primary;
+@mixin font-size($font-size, $font-weight, $line-height: normal, $letter-spacing: normal) {
   font-size: $font-size * 1rem;
+  font-weight: $font-weight;
 
   @if $line-height==normal {
     line-height: normal;
   } @else {
-    line-height: $line-height / $font-size;
+    line-height: $line-height;
   }
 
   @if $letter-spacing==normal {
     letter-spacing: normal;
   } @else {
-    letter-spacing: #{$letter-spacing / $font-size}em;
+    letter-spacing: $letter-spacing;
   }
 }
 
@@ -41,19 +41,6 @@
   height: 100vh;
   text-align: center;
   color: $color;
-}
-
-@mixin link($color) {
-  color: $color;
-  text-decoration: none;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
 }
 
 @mixin line-clamp($count) {

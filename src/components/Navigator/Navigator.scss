@@ -3,7 +3,7 @@
 
 .navigator {
     opacity: $opacity;
-    color: $color-tertiary;
+    color: $color-primary;
     display: flex;
     align-items: center;
     width: 60%;
@@ -19,7 +19,7 @@
     > .icon {
         @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
         @include rounded-corner(0.4rem);
-        border: 1px solid $color-tertiary;
+        border: 1px solid $color-primary;
         display: flex;
         align-items: center;
         justify-content: center;

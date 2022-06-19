@@ -15,9 +15,9 @@
 
 .pagination__list__item {
     @include flex-container(row, center, center);
-    @include box-shadow(5px 5px 10px 2px $color-tertiary);
+    @include box-shadow(5px 5px 10px 2px $color-primary);
     @include rounded-corner(50%);
-    background-color: $color-primary;
+    background-color: $color-tertiary;
     color: $color-secondary;
     opacity: $opacity;
     width: 30px;
@@ -33,7 +33,7 @@
 
     &.active {
         background-color: $color-secondary;
-        color: $color-primary;
+        color: $color-tertiary;
         opacity: 1;
     }
 }

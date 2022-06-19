@@ -3,14 +3,18 @@
 
 .card {
     @include rounded-corner(1rem);
-    @include box-shadow(5px 5px 10px 2px $color-tertiary);
+    @include box-shadow(5px 5px 10px 2px $color-primary);
+    @include font-size(1, 500, 1);
+    font-family: $font-primary;
+    opacity: $opacity;
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
-    opacity: $opacity;
     margin-top: 1.5rem;
     transition: all 0.5s ease-out;
+    font-stretch: normal;
+    font-style: normal;
 
     &:hover {
         transform: scale(1.015);
@@ -84,22 +88,43 @@
     }
 }
 
-.card__content__name {
-    font-size: 1.5rem;
-    font-weight: 600;
+.card__price {
+    @include font-size(1.2, 500, 1.24);
+    font-family: $font-primary;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.44;
-    letter-spacing: normal;
+
+    > * {
+        color: rgb(120, 180, 29);
+    }
+    > span {
+        margin-left: 0.2rem;
+        color: $color-primary;
+    }
+}
+
+.card__content__name {
+    @include font-size(1.5, 500, 1.24);
+    font-family: $font-primary;
+    font-stretch: normal;
+    font-style: normal;
+    margin-bottom: 0.5rem;
 }
 
 .card__content__location {
-    font-size: 1rem;
-    font-weight: 300;
+    @include font-size(1, 300, 1.44);
+    font-family: $font-secondary;
+    display: flex;
+    align-items: center;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.44;
-    letter-spacing: normal;
+
+    > span {
+        margin-left: 0.2rem;
+    }
 }
 
 .card__footer {
@@ -112,14 +137,6 @@
         justify-content: center;
         align-items: flex-start;
         justify-self: flex-end;
-    }
-}
-
-.card__price {
-    width: 40%;
-
-    @include desktop {
-        width: 100%;
     }
 }
 
@@ -143,18 +160,13 @@
     right: -1rem;
     top: -1rem;
     cursor: pointer;
-    border: 1px solid red;
     border-radius: 50%;
     padding: 0.5rem;
-    background-color: red;
+    background-color: $color-primary;
     transition: transform 1s ease;
     transform: translateZ(0);
 
     &:hover {
         transform: scale(1.115);
-    }
-
-    > * {
-        color: white;
     }
 }
