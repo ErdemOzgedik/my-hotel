@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Create.scss";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 import { FaHotel, FaMoneyBill, FaImage } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { GoLocation } from "react-icons/go";
 import { VscAdd } from "react-icons/vsc";
-import Navigator from "../../components/Navigator/Navigator";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addHotel } from "../../redux/hotelSlice";
-import toast, { Toaster } from "react-hot-toast";
+import "./Create.scss";
 import Button from "../../components/Button/Button";
 import FormItem from "../../components/FormItem/FormItem";
+import Navigator from "../../components/Navigator/Navigator";
+import { addHotel } from "../../redux/hotelSlice";
 
 function Create() {
   const toasterRef = useRef("");

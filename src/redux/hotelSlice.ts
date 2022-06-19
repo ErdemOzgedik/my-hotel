@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Hotel, HotelInitial } from "../types/model";
 import hotels from "../hotels.json";
+import { Hotel, HotelInitial } from "../types/model";
 import { FILTER_TYPES } from "../types/enums";
 import {
   getItemsFromStorage,

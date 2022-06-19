@@ -1,10 +1,10 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import "./Modal.scss";
 import { deleteHotel } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
 import Button from "../Button/Button";
-import "./Modal.scss";
 
 interface Props {
   hotel: Hotel;

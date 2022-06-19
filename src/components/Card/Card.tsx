@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { decreasePoint, increasePoint } from "../../redux/hotelSlice";
-import { Hotel } from "../../types/model";
-import "./Card.scss";
 import { GrClose } from "react-icons/gr";
 import { FaMoneyBill } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
+import "./Card.scss";
 import Button from "../Button/Button";
+import { decreasePoint, increasePoint } from "../../redux/hotelSlice";
+import { Hotel } from "../../types/model";
 
 interface Props {
   hotel: Hotel;

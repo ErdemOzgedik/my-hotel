@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { VscAdd } from "react-icons/vsc";
+import { Toaster } from "react-hot-toast";
 import "./Home.scss";
 import Card from "../../components/Card/Card";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "../../components/Modal/Modal";
 import Navigator from "../../components/Navigator/Navigator";
-import { useSelector } from "react-redux";
-import { VscAdd } from "react-icons/vsc";
+import NoFound from "../../components/NoFound/NoFound";
+import Pagination from "../../components/Pagination/Pagination";
 import { RootState } from "../../redux/store";
 import { Hotel } from "../../types/model";
-import { useNavigate } from "react-router-dom";
-import NoFound from "../../components/NoFound/NoFound";
 import { SHOW_COUNT } from "../../types/constants";
-import Pagination from "../../components/Pagination/Pagination";
-import { Toaster } from "react-hot-toast";
 
 function Home() {
   const [isModalOpen, setModalIsOpen] = useState<boolean>(false);

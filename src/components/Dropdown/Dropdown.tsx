@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { GoArrowDown, GoArrowRight } from "react-icons/go";
 import { useDispatch } from "react-redux";
+import "./Dropdown.scss";
 import { filterHotels } from "../../redux/hotelSlice";
 import { FILTER_TYPES } from "../../types/enums";
-
-import "./Dropdown.scss";
 
 const data = [
   { id: FILTER_TYPES.HIGHEST_PRICE, label: "En Yuksek Fiyat" },
