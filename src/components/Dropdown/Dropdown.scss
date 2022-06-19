@@ -4,6 +4,8 @@
 .dropdown {
     @include rounded-corner(1rem);
     @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+    @include font-size(1.2, 400, 1.44);
+    font-family: $font-primary;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -12,11 +14,9 @@
 }
 
 .dropdown__header {
+    @include flex-container(row, space-between, center);
     padding: 1rem;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
 
     @include tablet {
@@ -37,13 +37,14 @@
 }
 
 .dropdown__body {
+    @include font-size(1, 400, 1.44);
+    background-color: $color-tertiary;
     position: absolute;
     width: 100%;
     z-index: 999;
     padding: 0.5rem;
     border-top: 1px solid #e5e8ec;
     display: none;
-    background-color: white;
 }
 
 .dropdown__body.open {
@@ -58,6 +59,8 @@
 }
 
 .selected {
+    @include rounded-corner(1rem);
+    background-color: $color-secondary;
+    color: $color-tertiary;
     opacity: 1;
-    background-color: sandybrown;
 }
