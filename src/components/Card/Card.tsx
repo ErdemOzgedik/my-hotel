@@ -50,7 +50,9 @@ function Card({ hotel, handleDelete }: Props) {
           </div>
           <div className="card__price">
             <FaMoneyBill />
-            <span>{hotel.price} TL</span>
+            <div>
+              <span>{hotel.price} TL</span> per night
+            </div>
           </div>
         </div>
         <div className="card__footer">
