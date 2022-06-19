@@ -48,14 +48,14 @@ function Card({ hotel, handleDelete }: Props) {
             <Button
               handleClick={handleIncrease}
               body={"+"}
-              style={{ background: "#8c54ff", width: "40%" }}
+              style={{ background: "#2e25a7", width: "40%" }}
               type="button"
             />
             <span>{hotel.point}</span>
             <Button
               handleClick={handleDecrease}
               body={"-"}
-              style={{ background: "#8c54ff", width: "40%" }}
+              style={{ background: "#2e25a7", width: "40%" }}
               type="button"
             />
           </div>

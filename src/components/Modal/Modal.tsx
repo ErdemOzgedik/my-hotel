@@ -31,13 +31,13 @@ function Modal({ hotel, toggleModal }: Props) {
             handleClick={handleDelete}
             body={"Oteli Sil"}
             type="button"
-            style={{ background: "#8c54ff", width: "40%" }}
+            style={{ background: "#2e25a7", width: "40%" }}
           />
           <Button
             handleClick={toggleModal}
             body={"Vazgec"}
             type="button"
-            style={{ background: "#8c54ff", width: "40%" }}
+            style={{ background: "#2e25a7", width: "40%" }}
           />
         </div>
       </div>

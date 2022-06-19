@@ -2,50 +2,47 @@
 @import "../../styles/utilities/variables.scss";
 
 .form__item {
+    background-color: $color-secondary;
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    background-color: #8c54ff;
     border-radius: 5px;
 }
 
 .formItem__label {
-    display: flex;
+    @include flex-container(row, center, center);
     width: 15%;
-    align-items: center;
-    justify-content: center;
     margin: auto;
 
     > * {
         width: 100%;
-        color: white;
+        color: $color-tertiary;
         font-size: 1.5rem;
     }
 }
 
 .formItem__input {
+    color: $color-primary;
+    @include font-size(1, 400, 1.44);
+    font-family: $font-primary;
     flex: 1;
     padding: 1rem;
-    border: 1px solid #8c54ff;
+    border: 1px solid $color-secondary;
     border-radius: 5px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-
-    font-size: 1rem;
 
     &:focus {
         outline: none;
     }
 }
 
-/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
 }

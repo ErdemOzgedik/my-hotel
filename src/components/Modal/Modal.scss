@@ -2,6 +2,8 @@
 @import "../../styles/utilities/variables.scss";
 
 .modal {
+    @include font-size(1, 300);
+    font-family: $font-secondary;
     background-color: hsla(244, 51%, 62%, 0.5);
     bottom: 0;
     left: 0;
@@ -36,8 +38,8 @@
 }
 
 .modal__title {
-    font-size: 18px;
-    font-weight: 600;
+    @include font-size(1.2, 600);
+    font-family: $font-primary;
     margin-bottom: 1rem;
 }
 
