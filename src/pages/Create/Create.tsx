@@ -53,9 +53,6 @@ function Create() {
 
   useEffect(() => {
     return () => {
-      console.log("====================================");
-      console.log(toasterRef.current);
-      console.log("====================================");
       toast.dismiss(toasterRef.current);
     };
   }, []);
