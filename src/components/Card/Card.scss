@@ -145,7 +145,7 @@
     }
 }
 
-.card__point {
+.card__rate {
     @include rounded-corner(1rem);
     @include flex-container(row, center, center);
     @include font-size(1.5, 500, 1.24);

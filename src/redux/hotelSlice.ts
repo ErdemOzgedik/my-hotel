@@ -36,12 +36,12 @@ export const hotelSlice = createSlice({
 
       setItemToStorage(JSON.stringify(state.hotels));
     },
-    increasePoint: (state, action) => {
+    increaseRate: (state, action) => {
       state.hotels = state.hotels.map((hotel) => {
         if (hotel.id === action.payload) {
           return {
             ...hotel,
-            point: hotel.point + 1,
+            rate: hotel.rate + 1,
             updated_at: new Date().getTime(),
           };
         }
@@ -50,12 +50,12 @@ export const hotelSlice = createSlice({
 
       setItemToStorage(JSON.stringify(state.hotels));
     },
-    decreasePoint: (state, action) => {
+    decreaseRate: (state, action) => {
       state.hotels = state.hotels.map((hotel) => {
         if (hotel.id === action.payload) {
           return {
             ...hotel,
-            point: hotel.point - 1,
+            rate: hotel.rate - 1,
             updated_at: new Date().getTime(),
           };
         }
@@ -66,17 +66,17 @@ export const hotelSlice = createSlice({
     },
     filterHotels: (state, action) => {
       state.hotels = [...state.hotels].sort((a, b) => {
-        if (action.payload === FILTER_TYPES.LOWEST_POINT) {
-          if (a.point === b.point) {
+        if (action.payload === FILTER_TYPES.LOWEST_RATE) {
+          if (a.rate === b.rate) {
             return b.updated_at - a.updated_at;
           }
-          return a.point - b.point;
+          return a.rate - b.rate;
         }
-        if (action.payload === FILTER_TYPES.HIGHEST_POINT) {
-          if (a.point === b.point) {
+        if (action.payload === FILTER_TYPES.HIGHEST_RATE) {
+          if (a.rate === b.rate) {
             return b.updated_at - a.updated_at;
           }
-          return b.point - a.point;
+          return b.rate - a.rate;
         }
         if (action.payload === FILTER_TYPES.LOWEST_PRICE) {
           if (a.price === b.price) {
@@ -122,8 +122,8 @@ export const hotelSlice = createSlice({
 
 export const {
   addHotel,
-  increasePoint,
-  decreasePoint,
+  increaseRate,
+  decreaseRate,
   filterHotels,
   deleteHotel,
 } = hotelSlice.actions;

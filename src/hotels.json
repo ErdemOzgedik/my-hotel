@@ -4,7 +4,7 @@
         "location": "Kiriş, Kemer, Antalya",
         "price": 4000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/51539/m/Maxx-Royal-Kemer-Resort-Genel-300651.jpg",
-        "point": 7,
+        "rate": 7,
         "created_at": 1655410205321,
         "updated_at": 1655410221115
     },
@@ -14,7 +14,7 @@
         "location": "Lara-Kundu, Antalya Merkez, Antalya",
         "price": 3000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/51942/m/Titanic-Beach-Hotel-Lara-Genel-301888.jpg",
-        "point": 8,
+        "rate": 8,
         "created_at": 1655410205321,
         "updated_at": 1655410221117
     }, {
@@ -23,7 +23,7 @@
         "location": "Kuşadası, Aydın",
         "price": 5000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/55109/m/Pine-Bay-Holiday-Resort-Hotel-Genel-309171.jpg",
-        "point": 9,
+        "rate": 9,
         "created_at": 1655410205321,
         "updated_at": 1655410221116
     },
@@ -33,7 +33,7 @@
         "location": "Belek, Antalya",
         "price": 3900,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/50340/m/Maxx-Royal-Belek-Golf-Resort-Genel-324525.jpg",
-        "point": 3,
+        "rate": 3,
         "created_at": 1655410205321,
         "updated_at": 1655410221118
     }, {
@@ -42,7 +42,7 @@
         "location": "Sorgun, Side, Antalya",
         "price": 4000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/51886/m/Ali-Bey-Resort-Genel-342720.jpg",
-        "point": 4,
+        "rate": 4,
         "created_at": 1655410205321,
         "updated_at": 1655410221119
     }, {
@@ -51,7 +51,7 @@
         "location": "Torba, Bodrum, Muğla",
         "price": 5000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/52480/m/Voyage-Torba-Genel-313740.jpg",
-        "point": 6,
+        "rate": 6,
         "created_at": 1655410205321,
         "updated_at": 1655410221115
     }, {
@@ -60,7 +60,7 @@
         "location": "İskele Mevkii, Belek, Antalya",
         "price": 3750,
         "img": "https://images.etstur.com/files/images/hotelImages/test/TR/51493/m/GEN--5-.jpg",
-        "point": 8,
+        "rate": 8,
         "created_at": 1655410205321,
         "updated_at": 1655410221117
     }, {
@@ -69,7 +69,7 @@
         "location": "Side, Manavgat, Antalya",
         "price": 6000,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/50632/m/Ali-Bey-Club-Genel-342392.jpg",
-        "point": 3,
+        "rate": 3,
         "created_at": 1655410205321,
         "updated_at": 1655410221116
     },
@@ -79,7 +79,7 @@
         "location": "Akbuk, Didim, Aydın",
         "price": 4900,
         "img": "https://images.etstur.com/files/images/hotelImages/TR/212644/m/Maxeria-Blue-Didyma-Genel-301294.jpg",
-        "point": 0,
+        "rate": 0,
         "created_at": 1655410205321,
         "updated_at": 1655410221118
     }

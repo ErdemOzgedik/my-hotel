@@ -4,7 +4,7 @@ export type Hotel = {
   location: string;
   price: number;
   img: string;
-  point: number;
+  rate: number;
   created_at: number;
   updated_at: number;
 };

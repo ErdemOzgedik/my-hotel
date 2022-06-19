@@ -5,7 +5,7 @@ import { FaMoneyBill } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import "./Card.scss";
 import Button from "../Button/Button";
-import { decreasePoint, increasePoint } from "../../redux/hotelSlice";
+import { decreaseRate, increaseRate } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
 
 interface Props {
@@ -17,22 +17,22 @@ function Card({ hotel, handleDelete }: Props) {
   const dispatch = useDispatch();
 
   const getBorderColor = () => {
-    if (hotel.point >= 18) return "#4CAF50";
-    if (hotel.point >= 15) return "#8BC34A";
-    if (hotel.point >= 12) return "#CDDC39";
-    if (hotel.point >= 9) return "#FFEB3B";
-    if (hotel.point >= 6) return "#FFC107";
-    if (hotel.point >= 3) return "#FF9800";
+    if (hotel.rate >= 18) return "#4CAF50";
+    if (hotel.rate >= 15) return "#8BC34A";
+    if (hotel.rate >= 12) return "#CDDC39";
+    if (hotel.rate >= 9) return "#FFEB3B";
+    if (hotel.rate >= 6) return "#FFC107";
+    if (hotel.rate >= 3) return "#FF9800";
     return "#F44336";
   };
 
   const handleIncrease = () => {
-    dispatch(increasePoint(hotel.id));
+    dispatch(increaseRate(hotel.id));
   };
 
   const handleDecrease = () => {
-    if (hotel.point > 0) {
-      dispatch(decreasePoint(hotel.id));
+    if (hotel.rate > 0) {
+      dispatch(decreaseRate(hotel.id));
     }
   };
 
@@ -70,8 +70,8 @@ function Card({ hotel, handleDelete }: Props) {
               type="button"
             />
           </div>
-          <div className="card__point" style={{ background: getBorderColor() }}>
-            Point: {hotel.point}
+          <div className="card__rate" style={{ background: getBorderColor() }}>
+            Rate: {hotel.rate}
           </div>
         </div>
       </div>

@@ -8,8 +8,8 @@ import { FILTER_TYPES } from "../../types/enums";
 const data = [
   { id: FILTER_TYPES.HIGHEST_PRICE, label: "Highest Price" },
   { id: FILTER_TYPES.LOWEST_PRICE, label: "Lowest Price" },
-  { id: FILTER_TYPES.HIGHEST_POINT, label: "Highest Point" },
-  { id: FILTER_TYPES.LOWEST_POINT, label: "Lowest Point" },
+  { id: FILTER_TYPES.HIGHEST_RATE, label: "Highest Rate" },
+  { id: FILTER_TYPES.LOWEST_RATE, label: "Lowest Rate" },
 ];
 
 function Dropdown() {

@@ -76,7 +76,7 @@ function Create() {
           location: state.location,
           name: state.name.trim(),
           id: currentTime,
-          point: 0,
+          rate: 0,
           created_at: currentTime,
           updated_at: currentTime,
         })
