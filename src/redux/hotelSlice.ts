@@ -2,11 +2,22 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Hotel, HotelInitial } from "../types/model";
 import hotels from "../hotels.json";
 import { FILTER_TYPES } from "../types/enums";
+import {
+  getItemsFromStorage,
+  setItemToStorage,
+} from "../components/utils/storage";
 
 export const getHotelsAsync = createAsyncThunk(
   "get/hotels",
   async (): Promise<Hotel[]> => {
-    return hotels.sort((a, b) => b.updated_at - a.updated_at);
+    const storedHotels = getItemsFromStorage();
+
+    if (JSON.parse(storedHotels || "[]").length > 0)
+      return JSON.parse(storedHotels || "[]");
+
+    const sortedHotels = hotels.sort((a, b) => b.updated_at - a.updated_at);
+    setItemToStorage(JSON.stringify(sortedHotels));
+    return sortedHotels;
   }
 );
 
@@ -22,6 +33,8 @@ export const hotelSlice = createSlice({
   reducers: {
     addHotel: (state, action) => {
       state.hotels = [...state.hotels, action.payload];
+
+      setItemToStorage(JSON.stringify(state.hotels));
     },
     increasePoint: (state, action) => {
       state.hotels = state.hotels.map((hotel) => {
@@ -34,6 +47,8 @@ export const hotelSlice = createSlice({
         }
         return hotel;
       });
+
+      setItemToStorage(JSON.stringify(state.hotels));
     },
     decreasePoint: (state, action) => {
       state.hotels = state.hotels.map((hotel) => {
@@ -46,20 +61,10 @@ export const hotelSlice = createSlice({
         }
         return hotel;
       });
+
+      setItemToStorage(JSON.stringify(state.hotels));
     },
     filterHotels: (state, action) => {
-      if (action.payload === FILTER_TYPES.LATEST_UPDATED) {
-        state.hotels = [...state.hotels].sort(
-          (a, b) => b.updated_at - a.updated_at
-        );
-      }
-      if (action.payload === FILTER_TYPES.HIGHEST_POINT) {
-        state.hotels = [...state.hotels].sort((a, b) => b.point - a.point);
-      }
-      if (action.payload === FILTER_TYPES.LOWEST_POINT) {
-        state.hotels = [...state.hotels].sort((a, b) => a.point - b.point);
-      }
-
       state.hotels = [...state.hotels].sort((a, b) => {
         if (action.payload === FILTER_TYPES.LOWEST_POINT) {
           if (a.point === b.point) {
@@ -88,11 +93,15 @@ export const hotelSlice = createSlice({
 
         return b.updated_at - a.updated_at;
       });
+
+      setItemToStorage(JSON.stringify(state.hotels));
     },
     deleteHotel: (state, action) => {
       state.hotels = state.hotels.filter(
         (hotel) => hotel.id !== action.payload
       );
+
+      setItemToStorage(JSON.stringify(state.hotels));
     },
   },
   extraReducers: (builder) => {
