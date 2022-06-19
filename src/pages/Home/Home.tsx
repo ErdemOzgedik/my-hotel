@@ -4,9 +4,8 @@ import Card from "../../components/Card/Card";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "../../components/Modal/Modal";
 import Navigator from "../../components/Navigator/Navigator";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { VscAdd } from "react-icons/vsc";
-import { getHotelsAsync } from "../../redux/hotelSlice";
 import { RootState } from "../../redux/store";
 import { Hotel } from "../../types/model";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +19,6 @@ function Home() {
   const [selectedHotel, setSelectedHotel] = useState<Hotel>();
   const [currentPage, setCurrentPage] = useState<number>(0);
   const state = useSelector((state: RootState) => state.hotels);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const pageCount = Math.ceil(state.hotels.length / SHOW_COUNT);
 
@@ -51,10 +49,6 @@ function Home() {
   useEffect(() => {
     setCurrentPage(0);
   }, [state.hotels]);
-
-  useEffect(() => {
-    state.hotels.length === 0 && dispatch(getHotelsAsync());
-  }, [dispatch, state.hotels.length]);
 
   return (
     <div className="home">
