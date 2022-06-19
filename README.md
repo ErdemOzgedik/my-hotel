@@ -2,7 +2,7 @@
 
 This is a responsive web application.
 Users can browse among diffrent hotels also can filter by price and point them.
-User can create new hotels.
+Users can create new hotels.
 
 ## Used Technologies
 
