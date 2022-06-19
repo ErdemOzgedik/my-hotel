@@ -100,7 +100,7 @@ function Create() {
         <Button
           body={<VscAdd />}
           type="submit"
-          style={{ background: "#2e25a7", width: "100%" }}
+          style={{ background: "#2e25a7", width: "100%", padding: "1.5rem" }}
         />
       </div>
       <Toaster
