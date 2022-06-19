@@ -14,6 +14,7 @@ import { addHotel } from "../../redux/hotelSlice";
 
 function Create() {
   const toasterRef = useRef("");
+  const errorMessage = useRef("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [state, setState] = useState({
@@ -33,23 +34,49 @@ function Create() {
     setState((prevState) => ({ ...prevState, [id]: value }));
   };
 
+  const isFormValid = (): boolean => {
+    if (!state.name.trim()) {
+      errorMessage.current = "Hotel name required";
+      return false;
+    }
+    if (!state.location.trim()) {
+      errorMessage.current = "Hotel location required";
+      return false;
+    }
+    if (!/^\d+$/.test(state.price)) {
+      errorMessage.current = "Hotel price should be a number and higher than 0";
+      return false;
+    }
+    if (!new RegExp("[/.](gif|jpg|jpeg|tiff|png)$").test(state.img)) {
+      errorMessage.current = "Hotel img should be an img url";
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const currentTime = new Date().getTime();
     e.preventDefault();
-    dispatch(
-      addHotel({
-        price: parseInt(state.price),
-        img: state.img,
-        location: state.location,
-        name: state.name.trim(),
-        id: currentTime,
-        point: 0,
-        created_at: currentTime,
-        updated_at: currentTime,
-      })
-    );
+    toast.dismiss(toasterRef.current);
 
-    toasterRef.current = toast.success("Hotel successfully added!");
+    if (isFormValid()) {
+      dispatch(
+        addHotel({
+          price: parseInt(state.price),
+          img: state.img,
+          location: state.location,
+          name: state.name.trim(),
+          id: currentTime,
+          point: 0,
+          created_at: currentTime,
+          updated_at: currentTime,
+        })
+      );
+      toasterRef.current = toast.success("Hotel successfully added!");
+      return;
+    }
+
+    toasterRef.current = toast.error(errorMessage.current);
   };
 
   useEffect(() => {
@@ -87,7 +114,6 @@ function Create() {
           value={state.price}
           handleChange={handleChange}
           type="text"
-          pattern="[0-9]*"
         />
         <FormItem
           id="img"
@@ -95,7 +121,6 @@ function Create() {
           value={state.img}
           handleChange={handleChange}
           type="url"
-          pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
         />
         <Button
           body={<VscAdd />}
@@ -108,13 +133,18 @@ function Create() {
         toastOptions={{
           success: {
             duration: 3000,
-            theme: {
-              primary: "white",
-              secondary: "black",
-            },
             style: {
               background: "green",
               color: "white",
+              padding: "1rem",
+              opacity: "0.2",
+            },
+          },
+          error: {
+            duration: 3000,
+            style: {
+              background: "white",
+              color: "red",
               padding: "1rem",
               opacity: "0.2",
             },

@@ -19,13 +19,11 @@ function FormItem({ id, icon, type, value, handleChange, pattern }: Props) {
       <input
         className="formItem__input"
         autoComplete="off"
-        required
         type={type}
         id={id}
         value={value}
         onChange={handleChange}
         placeholder={`Hotel ${id}`}
-        pattern={pattern}
       />
     </div>
   );

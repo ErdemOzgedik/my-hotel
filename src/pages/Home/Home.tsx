@@ -87,12 +87,8 @@ function Home() {
         toastOptions={{
           success: {
             duration: 3000,
-            theme: {
-              primary: "white",
-              secondary: "black",
-            },
             style: {
-              background: "orange",
+              background: "green",
               color: "white",
               padding: "1rem",
               opacity: "0.2",
