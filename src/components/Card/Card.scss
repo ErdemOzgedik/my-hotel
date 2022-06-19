@@ -131,27 +131,30 @@
 
 .card__footer {
     display: flex;
-    margin-top: 0.5rem;
-    align-items: center;
+    flex-direction: row;
+    margin-top: 1rem;
+    height: 100px;
 
     @include desktop {
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        justify-self: flex-end;
+        height: 130px;
     }
 }
 
 .card__point {
+    @include rounded-corner(1rem);
+    @include flex-container(row, center, center);
+    @include font-size(1.5, 500, 1.24);
+    width: 50%;
+    height: 100%;
+    color: $color-tertiary;
+    margin-left: 1rem;
+}
+
+.card__buttons {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-
-    @include desktop {
-        margin-top: 0.8rem;
-        width: 100%;
-    }
 }
 
 .card__delete {

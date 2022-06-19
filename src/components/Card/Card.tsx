@@ -16,6 +16,16 @@ interface Props {
 function Card({ hotel, handleDelete }: Props) {
   const dispatch = useDispatch();
 
+  const getBorderColor = () => {
+    if (hotel.point >= 18) return "#4CAF50";
+    if (hotel.point >= 15) return "#8BC34A";
+    if (hotel.point >= 12) return "#CDDC39";
+    if (hotel.point >= 9) return "#FFEB3B";
+    if (hotel.point >= 6) return "#FFC107";
+    if (hotel.point >= 3) return "#FF9800";
+    return "#F44336";
+  };
+
   const handleIncrease = () => {
     dispatch(increasePoint(hotel.id));
   };
@@ -44,20 +54,22 @@ function Card({ hotel, handleDelete }: Props) {
           </div>
         </div>
         <div className="card__footer">
-          <div className="card__point">
+          <div className="card__buttons">
             <Button
               handleClick={handleIncrease}
               body={"+"}
-              style={{ background: "#2e25a7", width: "40%" }}
+              style={{ background: "#2e25a7", width: "100%" }}
               type="button"
             />
-            <span>{hotel.point}</span>
             <Button
               handleClick={handleDecrease}
               body={"-"}
-              style={{ background: "#2e25a7", width: "40%" }}
+              style={{ background: "#2e25a7", width: "100%" }}
               type="button"
             />
+          </div>
+          <div className="card__point" style={{ background: getBorderColor() }}>
+            Point: {hotel.point}
           </div>
         </div>
       </div>
