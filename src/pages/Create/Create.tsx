@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Create.scss";
-import { FaHotel, FaMoneyBill, FaImage, FaStepBackward } from "react-icons/fa";
+import { FaHotel, FaMoneyBill, FaImage } from "react-icons/fa";
+import { IoIosArrowBack } from "react-icons/io";
 import { GoLocation } from "react-icons/go";
 import { VscAdd } from "react-icons/vsc";
 import Navigator from "../../components/Navigator/Navigator";
@@ -61,7 +62,7 @@ function Create() {
     <form className="create" onSubmit={handleSubmit}>
       <Navigator
         title="Go Back"
-        icon={<FaStepBackward />}
+        icon={<IoIosArrowBack />}
         handleNavigate={handleNavigate}
       />
       <div className="create__header">Add a new Hotel</div>

@@ -36,13 +36,6 @@
   box-shadow: $value;
 }
 
-@mixin app-container($color) {
-  @include flex-container(column, center, center);
-  height: 100vh;
-  text-align: center;
-  color: $color;
-}
-
 @mixin line-clamp($count) {
   overflow: hidden;
   text-overflow: ellipsis;
