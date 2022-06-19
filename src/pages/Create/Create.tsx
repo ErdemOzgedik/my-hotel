@@ -34,6 +34,15 @@ function Create() {
     setState((prevState) => ({ ...prevState, [id]: value }));
   };
 
+  const resetState = () => {
+    setState({
+      name: "",
+      location: "",
+      price: "",
+      img: "https://images.etstur.com/files/images/hotelImages/TR/51164/m/Club-Yali-Hotels---Resort-Genel-133324.jpg",
+    });
+  };
+
   const isFormValid = (): boolean => {
     if (!state.name.trim()) {
       errorMessage.current = "Hotel name required";
@@ -73,6 +82,7 @@ function Create() {
         })
       );
       toasterRef.current = toast.success("Hotel successfully added!");
+      resetState();
       return;
     }
 
