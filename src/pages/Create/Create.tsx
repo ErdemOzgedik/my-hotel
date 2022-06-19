@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addHotel } from "../../redux/hotelSlice";
 import toast, { Toaster } from "react-hot-toast";
+import Button from "../../components/Button/Button";
+import FormItem from "../../components/FormItem/FormItem";
 
 function Create() {
   const toasterRef = useRef("");
@@ -16,7 +18,7 @@ function Create() {
   const [state, setState] = useState({
     name: "",
     location: "",
-    price: 0,
+    price: "",
     img: "https://images.etstur.com/files/images/hotelImages/TR/51164/m/Club-Yali-Hotels---Resort-Genel-133324.jpg",
   });
 
@@ -35,7 +37,7 @@ function Create() {
     e.preventDefault();
     dispatch(
       addHotel({
-        price: state.price,
+        price: parseInt(state.price),
         img: state.img,
         location: state.location,
         name: state.name.trim(),
@@ -67,68 +69,41 @@ function Create() {
       />
       <div className="create__header">Add a new Hotel</div>
       <div className="create__form">
-        <div className="form__item">
-          <label htmlFor="name">
-            <FaHotel />
-          </label>
-          <input
-            autoComplete="off"
-            required
-            type="text"
-            id="name"
-            value={state.name}
-            onChange={handleChange}
-            placeholder="Hotel name"
-          />
-        </div>
-        <div className="form__item">
-          <label htmlFor="location">
-            <GoLocation />
-          </label>
-          <input
-            autoComplete="off"
-            required
-            type="text"
-            id="location"
-            value={state.location}
-            onChange={handleChange}
-            placeholder="Hotel location"
-          />
-        </div>
-        <div className="form__item">
-          <label htmlFor="price">
-            <FaMoneyBill />
-          </label>
-          <input
-            autoComplete="off"
-            required
-            type="number"
-            id="price"
-            value={state.price}
-            min={1}
-            onChange={handleChange}
-            placeholder="Hotel price"
-          />
-        </div>
-        <div className="form__item">
-          <label htmlFor="img">
-            <FaImage />
-          </label>
-          <input
-            autoComplete="off"
-            required
-            type="url"
-            id="img"
-            pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
-            value={state.img}
-            onChange={handleChange}
-            placeholder="Hotel image url"
-          />
-        </div>
-
-        <button type="submit" className="form__submit">
-          <VscAdd />
-        </button>
+        <FormItem
+          id="name"
+          icon={<FaHotel />}
+          value={state.name}
+          handleChange={handleChange}
+          type="text"
+        />
+        <FormItem
+          id="location"
+          icon={<GoLocation />}
+          value={state.location}
+          handleChange={handleChange}
+          type="text"
+        />
+        <FormItem
+          id="price"
+          icon={<FaMoneyBill />}
+          value={state.price}
+          handleChange={handleChange}
+          type="text"
+          pattern="[0-9]*"
+        />
+        <FormItem
+          id="img"
+          icon={<FaImage />}
+          value={state.img}
+          handleChange={handleChange}
+          type="url"
+          pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+        />
+        <Button
+          body={<VscAdd />}
+          type="submit"
+          style={{ background: "#8c54ff", width: "100%" }}
+        />
       </div>
       <Toaster
         position="top-right"

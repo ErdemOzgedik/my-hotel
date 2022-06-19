@@ -1,0 +1,51 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.form__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: #8c54ff;
+    border-radius: 5px;
+}
+
+.formItem__label {
+    display: flex;
+    width: 15%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    > * {
+        width: 100%;
+        color: white;
+        font-size: 1.5rem;
+    }
+}
+
+.formItem__input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #8c54ff;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+    font-size: 1rem;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

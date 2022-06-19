@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { deleteHotel } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
+import Button from "../Button/Button";
 import "./Modal.scss";
 
 interface Props {
@@ -26,12 +27,18 @@ function Modal({ hotel, toggleModal }: Props) {
         <h3 className="modal__title">Oteli Sil!</h3>
         <p>{hotel.name}'i silmek istediginizie emin misiniz?</p>
         <div className="modal__buttons">
-          <button type="button" onClick={handleDelete}>
-            Oteli Sil
-          </button>
-          <button type="button" onClick={toggleModal}>
-            Vazgec
-          </button>
+          <Button
+            handleClick={handleDelete}
+            body={"Oteli Sil"}
+            type="button"
+            style={{ background: "#8c54ff", width: "40%" }}
+          />
+          <Button
+            handleClick={toggleModal}
+            body={"Vazgec"}
+            type="button"
+            style={{ background: "#8c54ff", width: "40%" }}
+          />
         </div>
       </div>
     </div>
