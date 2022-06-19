@@ -6,10 +6,10 @@ import { filterHotels } from "../../redux/hotelSlice";
 import { FILTER_TYPES } from "../../types/enums";
 
 const data = [
-  { id: FILTER_TYPES.HIGHEST_PRICE, label: "En Yuksek Fiyat" },
-  { id: FILTER_TYPES.LOWEST_PRICE, label: "En Dusuk Fiyat" },
-  { id: FILTER_TYPES.HIGHEST_POINT, label: "En Yuksek Puan" },
-  { id: FILTER_TYPES.LOWEST_POINT, label: "En Dusuk Puan" },
+  { id: FILTER_TYPES.HIGHEST_PRICE, label: "Highest Price" },
+  { id: FILTER_TYPES.LOWEST_PRICE, label: "Lowest Price" },
+  { id: FILTER_TYPES.HIGHEST_POINT, label: "Highest Point" },
+  { id: FILTER_TYPES.LOWEST_POINT, label: "Lowest Point" },
 ];
 
 function Dropdown() {
@@ -38,7 +38,7 @@ function Dropdown() {
         <span>
           {selectedItem
             ? data.find((item) => item.id === selectedItem)?.label
-            : "Önerilen Sıralama"}
+            : "Recommended"}
         </span>
         {isOpen ? <GoArrowDown /> : <GoArrowRight />}
       </div>

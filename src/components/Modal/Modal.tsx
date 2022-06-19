@@ -24,20 +24,18 @@ function Modal({ hotel, toggleModal }: Props) {
   return (
     <div className="modal">
       <div className="modal__container">
-        <h3 className="modal__title">Oteli Sil!</h3>
-        <p>
-          <span>{hotel.name}</span>'i silmek istediginizie emin misiniz?
-        </p>
+        <h3 className="modal__title">Delete Hotel!</h3>
+        <p>Would you like to delete {<span>{hotel.name}</span>}?</p>
         <div className="modal__buttons">
           <Button
             handleClick={handleDelete}
-            body={"Oteli Sil"}
+            body={"Delete"}
             type="button"
             style={{ background: "#2e25a7", width: "40%" }}
           />
           <Button
             handleClick={toggleModal}
-            body={"Vazgec"}
+            body={"Back"}
             type="button"
             style={{ background: "#2e25a7", width: "40%" }}
           />
