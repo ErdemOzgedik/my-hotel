@@ -24,6 +24,15 @@
     padding: 2rem;
     transition: transform 0.5s ease-out;
 
+    > p {
+        @include line-clamp(3);
+    }
+
+    > p > span {
+        @include font-size(1, 400);
+        font-family: $font-primary;
+    }
+
     &:hover {
         transform: scale(1.1);
         opacity: 1;

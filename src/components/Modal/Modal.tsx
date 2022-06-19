@@ -25,7 +25,9 @@ function Modal({ hotel, toggleModal }: Props) {
     <div className="modal">
       <div className="modal__container">
         <h3 className="modal__title">Oteli Sil!</h3>
-        <p>{hotel.name}'i silmek istediginizie emin misiniz?</p>
+        <p>
+          <span>{hotel.name}</span>'i silmek istediginizie emin misiniz?
+        </p>
         <div className="modal__buttons">
           <Button
             handleClick={handleDelete}
