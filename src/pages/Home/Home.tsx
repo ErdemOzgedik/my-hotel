@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { VscAdd } from "react-icons/vsc";
 import { Toaster } from "react-hot-toast";
 import "./Home.scss";
-import Card from "../../components/Card/Card";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "../../components/Modal/Modal";
 import Navigator from "../../components/Navigator/Navigator";
-import NoFound from "../../components/NoFound/NoFound";
-import Pagination from "../../components/Pagination/Pagination";
 import { RootState } from "../../redux/store";
 import { Hotel } from "../../types/model";
 import { SHOW_COUNT } from "../../types/constants";
+
+const Pagination = lazy(() => import("../../components/Pagination/Pagination"));
+const Spinner = lazy(() => import("../../components/Spinner/Spinner"));
+const NoFound = lazy(() => import("../../components/NoFound/NoFound"));
+const CardList = lazy(() => import("../../components/CardList/CardList"));
 
 function Home() {
   const [isModalOpen, setModalIsOpen] = useState<boolean>(false);
@@ -52,50 +54,64 @@ function Home() {
 
   return (
     <div className="home">
-      {selectedHotel && isModalOpen && (
-        <Modal hotel={selectedHotel} toggleModal={toggleModal} />
-      )}
-      <div className="home__header">
-        <div style={{ width: "100%" }}>
-          <Navigator
-            title="Add Hotel"
-            icon={<VscAdd />}
-            handleNavigate={handleNavigate}
+      {state.pending ? (
+        <Spinner />
+      ) : (
+        <>
+          {selectedHotel && isModalOpen && (
+            <Modal hotel={selectedHotel} toggleModal={toggleModal} />
+          )}
+          <div className="home__header">
+            <div style={{ width: "100%" }}>
+              <Navigator
+                title="Add Hotel"
+                icon={<VscAdd />}
+                handleNavigate={handleNavigate}
+              />
+            </div>
+            {state.hotels.length > 0 && <Dropdown />}
+          </div>
+          <>
+            {state.hotels.length === 0 ? (
+              <Suspense>
+                <NoFound />
+              </Suspense>
+            ) : (
+              <Suspense>
+                <CardList
+                  hotels={state.hotels}
+                  currentPage={currentPage}
+                  handleDelete={handleDelete}
+                />
+              </Suspense>
+            )}
+          </>
+          <Suspense>
+            {pageCount > 1 && (
+              <Pagination
+                pageCount={pageCount}
+                currentPage={currentPage}
+                handleChange={handleChange}
+              />
+            )}
+          </Suspense>
+
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              success: {
+                duration: 3000,
+                style: {
+                  background: "green",
+                  color: "white",
+                  padding: "1rem",
+                  opacity: "0.2",
+                },
+              },
+            }}
           />
-        </div>
-        {state.hotels.length > 0 && <Dropdown />}
-      </div>
-      <div className="card__list">
-        {state.hotels.length === 0 && <NoFound />}
-        {state.hotels
-          .slice(currentPage * SHOW_COUNT, (currentPage + 1) * SHOW_COUNT)
-          .map((hotel) => (
-            <Card key={hotel.id} hotel={hotel} handleDelete={handleDelete} />
-          ))}
-      </div>
-
-      {pageCount > 1 ? (
-        <Pagination
-          pageCount={pageCount}
-          currentPage={currentPage}
-          handleChange={handleChange}
-        />
-      ) : null}
-
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          success: {
-            duration: 3000,
-            style: {
-              background: "green",
-              color: "white",
-              padding: "1rem",
-              opacity: "0.2",
-            },
-          },
-        }}
-      />
+        </>
+      )}
     </div>
   );
 }

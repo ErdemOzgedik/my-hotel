@@ -7,6 +7,7 @@ import "./Card.scss";
 import Button from "../Button/Button";
 import { decreaseRate, increaseRate } from "../../redux/hotelSlice";
 import { Hotel } from "../../types/model";
+import { getBorderColor } from "../../utils/utils";
 
 interface Props {
   hotel: Hotel;
@@ -15,16 +16,6 @@ interface Props {
 
 function Card({ hotel, handleDelete }: Props) {
   const dispatch = useDispatch();
-
-  const getBorderColor = () => {
-    if (hotel.rate >= 18) return "#4CAF50";
-    if (hotel.rate >= 15) return "#8BC34A";
-    if (hotel.rate >= 12) return "#CDDC39";
-    if (hotel.rate >= 9) return "#FFEB3B";
-    if (hotel.rate >= 6) return "#FFC107";
-    if (hotel.rate >= 3) return "#FF9800";
-    return "#F44336";
-  };
 
   const handleIncrease = () => {
     dispatch(increaseRate(hotel.id));
@@ -70,7 +61,10 @@ function Card({ hotel, handleDelete }: Props) {
               type="button"
             />
           </div>
-          <div className="card__rate" style={{ background: getBorderColor() }}>
+          <div
+            className="card__rate"
+            style={{ background: getBorderColor(hotel.rate) }}
+          >
             Rate: {hotel.rate}
           </div>
         </div>

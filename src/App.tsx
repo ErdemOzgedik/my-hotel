@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { getHotelsAsync } from "./redux/hotelSlice";
-import Create from "./pages/Create/Create";
-import Home from "./pages/Home/Home";
+
+const Home = lazy(() => import("./pages/Home/Home"));
+const Create = lazy(() => import("./pages/Create/Create"));
 
 function App() {
   const dispatch = useDispatch();
@@ -15,11 +16,13 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="create" element={<Create />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="create" element={<Create />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );

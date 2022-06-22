@@ -2,14 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import hotels from "../hotels.json";
 import { Hotel, HotelInitial } from "../types/model";
 import { FILTER_TYPES } from "../types/enums";
-import {
-  getItemsFromStorage,
-  setItemToStorage,
-} from "../components/utils/storage";
+import { getItemsFromStorage, setItemToStorage } from "../utils/storage";
+import { sleep } from "../utils/utils";
 
 export const getHotelsAsync = createAsyncThunk(
   "get/hotels",
   async (): Promise<Hotel[]> => {
+    await sleep(1000);
     const storedHotels = getItemsFromStorage();
 
     if (JSON.parse(storedHotels || "[]").length > 0)

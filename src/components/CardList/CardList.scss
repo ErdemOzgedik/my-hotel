@@ -1,0 +1,19 @@
+@import "../../styles/utilities/mixins.scss";
+@import "../../styles/utilities/variables.scss";
+
+.card__list {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+
+    @include tablet {
+        justify-content: space-between;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+    }
+}
